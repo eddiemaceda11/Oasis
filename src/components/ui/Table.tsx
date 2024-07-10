@@ -11,9 +11,8 @@ import TableModal from './TableModal';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
-import { type RootState, type AppDispatch } from '../../store';
-import { updateTablePrice } from '../../features/Rentals/rentalsSlice';
 
+import { type RootState, type AppDispatch } from '../../store';
 import { type RentalProps } from '../../data/properties';
 
 export const TableHero = () => {
@@ -33,22 +32,8 @@ export const TableHero = () => {
   // Property to edit
   const [propertyToEdit, setPropertyToEdit] = useState<number>();
   console.log(propertyToEdit);
-  /*
-  // Update price on input change
-  const handleChange = (e, id: number) => {
-    // Remove the $ dollar sign from the string value and convert to num
-    // const newValue = Number(e.target.value.split('').slice(1).join(''));
-
-    const newValue = Number(e.target.value);
-    if (isNaN(newValue)) {
-      return;
-    }
-    console.log(e);
-    dispatch(updateTablePrice({ newValue, id }));
-  };
-  */
-
-  // Function that will sort the price of our properties in the Table
+  
+// Function that will sort the price of our properties in the Table
   function sortbyPrice() {
     /*
     In order to be able to sort by price through this array of objects,
@@ -87,13 +72,8 @@ export const TableHero = () => {
     setProperties(rentalProperties);
   }, [rentalProperties]);
 
-  /* 
-  Do not sort the entire state, since the sort only affects the UI, 
-  use/perform the sort locally within this component
-  */
-
   return (
-    <div className="mx-auto w-[69rem] border mb-4">
+    <div className="mx-auto w-[45rem] lg:w-[55rem] xl:w-[69rem] border mb-4">
       <div className="w-full border-b">
         <div className="flex">
           <div className="w-[4.6rem] text-center">ID</div>
@@ -131,7 +111,27 @@ export const TableHero = () => {
           ))}
         </TableBody>
       </Table>
-      {propertyToEdit ? <TableModal property={propertyToEdit} /> : ''}
+      {propertyToEdit ? <TableModal propertyId={propertyToEdit} /> : ''}
     </div>
   );
 };
+
+ /* 
+  Do not sort the entire state, since the sort only affects the UI, 
+  use/perform the sort locally within this component
+  */
+
+/*
+  // Update price on input change
+  const handleChange = (e, id: number) => {
+    // Remove the $ dollar sign from the string value and convert to num
+    // const newValue = Number(e.target.value.split('').slice(1).join(''));
+
+    const newValue = Number(e.target.value);
+    if (isNaN(newValue)) {
+      return;
+    }
+    console.log(e);
+    dispatch(updateTablePrice({ newValue, id }));
+  };
+  */

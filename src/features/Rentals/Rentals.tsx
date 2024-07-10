@@ -25,14 +25,14 @@ const Rentals = () => {
   // };
 
   return (
-    <div className="grid grid-cols-2 gap-0 w-[69rem] m-auto">
+    <div className="grid grid-cols-2 gap-0 md:w-[48rem] lg:bg-white lg:w-[61rem] xl:w-[69rem] m-auto">
       {rentalsToShow.map((rental) => (
         <div
           key={rental.name}
-          className="flex border border-solid h-44 m-3 rounded-lg w-[33rem] place-self-center items-center"
+          className="overflow-hidden flex border border-solid h-44 m-3 rounded-lg md:w-[23rem] lg:w-[29rem] xl:w-[33rem] place-self-center items-center"
         >
-          <img src={rental.image} className="w-64 h-40 object-contain" />
-          <div className="border border-solid w-64 h-40 ml-1 p-3">
+          <img src={rental.image} className="ml-2 xl:ml-0 min-h-[10rem] md:w-48 lg:w-56 xl:w-64 xl:h-40 xl:object-contain" />
+          <div className="md:bg-red-100 md:w-[9.6rem] md:h-40 lg:w-[13.7rem] xl:w-64 xl:h-40 ml-1 p-3">
             <div className="flex justify-between">
               <div className="flex items-center gap-1.5">
                 <i className="fa-solid fa-circle-check text-sky-500 text-xs"></i>
@@ -54,7 +54,7 @@ const Rentals = () => {
             >
               Click
             </Button> */}
-            <div className="text-[10.5px] flex mt-1 text-slate-400 justify-between mt-3">
+            <div className="md:grid md:grid-cols-2 md:grid-rows-2 lg:flex md:text-[9px] lg:text-[9px] xl:text-[10.5px] flex mt-1 text-slate-400 justify-between mt-3">
               <div className="flex items-center gap-1">
                 <i className="fa-solid fa-bed"></i>
                 <p>{rental.bedrooms} Bed</p>
@@ -73,7 +73,7 @@ const Rentals = () => {
               </div>
             </div>
             <div className="flex justify-around mt-5">
-              <p className="text-sm mr-auto font-medium">
+              <p className="text-xs xl:text-sm mr-auto font-medium">
                 ${rental.price}/month
               </p>
               <p
@@ -86,7 +86,7 @@ const Rentals = () => {
                 {rental.available ? 'Available' : 'Sold out'}
               </p>
               <Button
-                classInfo="border border-solid border-neutral-400 px-4 text-xs ml-1"
+                classInfo="border border-solid border-neutral-400 px-2 xl:px-4 text-xs ml-1"
                 handleClick={() => {
                   dispatch(setAvailibility(rental));
                 }}
