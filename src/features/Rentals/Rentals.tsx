@@ -44,7 +44,7 @@ const Rentals = () => {
                 <p className="text-sm font-medium">({rental.reviews})</p>
               </span>
             </div>
-            <p className="font-bold mt-1">{rental.name}</p>
+            <p className="font-bold mt-1">{rental.name.split("").length > 15 ? "Too long" : rental.name} {rental.name.split("").length}</p>
             <p className="text-xs text-slate-400">
               {rental.city},{rental.state}
             </p>
