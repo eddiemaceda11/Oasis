@@ -3,6 +3,7 @@ import { type RootState, type AppDispatch } from '../../store';
 import { updatePrice, setAvailibility } from './rentalsSlice';
 import { type RentalProps } from '../../data/properties';
 import Button from '../../components/ui/Button';
+import { useState } from 'react';
 
 const Rentals = () => {
   // Get the current array of rentals
@@ -14,7 +15,9 @@ const Rentals = () => {
     (state: RootState) => state.rentals.filteredRentals
   );
 
-  const rentalsToShow = filteredRentals.length > 0 ? filteredRentals : rentals;
+  const [rentalsShowedLength, setRentalsShowedLength] = useState(6); 
+
+  const rentalsToShow = filteredRentals.length > 0 ? filteredRentals.slice(0, rentalsShowedLength) : rentals.slice(0, rentalsShowedLength);
 
   const dispatch: AppDispatch = useDispatch();
 
