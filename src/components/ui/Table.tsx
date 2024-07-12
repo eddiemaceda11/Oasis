@@ -35,13 +35,13 @@ export const TableHero = () => {
   
 // Function that will sort the price of our properties in the Table
   function sortbyPrice() {
-    /*
-    In order to be able to sort by price through this array of objects,
-    we need to create two separate sort functions - 1 that will sort in
-    ascending order and another in descending order. The types for this are tricky,
-    but essentially we need to set the type of key to be type keyof RentalProps, and
-    the type of the objects passed as the parameters (in this case a, b) to be of
-    type RentalProps. The function format is as follows ->>
+    /** 
+      *In order to be able to sort by price through this array of objects,
+      *we need to create two separate sort functions - 1 that will sort in
+      *ascending order and another in descending order. The types for this are tricky,
+      *but essentially we need to set the type of key to be type keyof RentalProps, and
+      *the type of the objects passed as the parameters (in this case a, b) to be of
+      *type RentalProps. The function format is as follows ->>
 
     (key: keyof RentalProps) => (a: RentalProps, b: RentalProps) =>
       a[key] > b[key] ? 1 : -1;
