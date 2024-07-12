@@ -32,7 +32,7 @@ const Rentals = () => {
           className="overflow-hidden flex border border-solid h-44 m-3 rounded-lg md:w-[23rem] lg:w-[29rem] xl:w-[33rem] place-self-center items-center"
         >
           <img src={rental.image} className="ml-2 xl:ml-0 min-h-[10rem] md:w-48 lg:w-56 xl:w-64 xl:h-40 xl:object-contain" />
-          <div className="md:bg-red-100 md:w-[9.6rem] md:h-40 lg:w-[13.7rem] xl:w-64 xl:h-40 ml-1 p-3">
+          <div className="md:w-[9.6rem] md:h-40 lg:w-[13.7rem] xl:w-64 xl:h-40 ml-1 p-3">
             <div className="flex justify-between">
               <div className="flex items-center gap-1.5">
                 <i className="fa-solid fa-circle-check text-sky-500 text-xs"></i>
