@@ -34,7 +34,7 @@ export const TableHero = () => {
   console.log(propertyToEdit);
   
 // Function that will sort the price of our properties in the Table
-  function sortbyPrice() {
+  function sortByPrice() {
     /** 
       *In order to be able to sort by price through this array of objects,
       *we need to create two separate sort functions - 1 that will sort in
@@ -82,7 +82,7 @@ export const TableHero = () => {
             Price
             <i
               className="fa-solid fa-arrow-right-arrow-left text-xs rotate-90 absolute right-32 top-1 cursor-pointer"
-              onClick={() => sortbyPrice()}
+              onClick={() => sortByPrice()}
             ></i>
           </div>
           <div className="text-center w-[14.64rem]">Region</div>
