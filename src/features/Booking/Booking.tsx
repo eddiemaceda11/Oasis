@@ -3,11 +3,9 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { type RootState, type AppDispatch } from '../../store';
 import { filterProperties } from '../Rentals/rentalsSlice';
-// import DatePicker from './DatePicker';
 import TremorDateRangePicker from './TremorDateRangePicker';
 
 const color = 'white';
-// 6/24/24 - begin to configure the Booking slice, which will include a search reducer
 
 const Booking = () => {
   const [currentCity, setCurrentCity] = useState('');
@@ -18,7 +16,7 @@ const Booking = () => {
 
   const dispatch = useDispatch();
 
-  const fetchRentals = (e) => {
+  const fetchRentals = (e: React.MouseEvent<HTMLButtonElement> | React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     dispatch(filterProperties(currentCity));
   };
@@ -79,7 +77,7 @@ const Booking = () => {
         <TremorDateRangePicker />
       </div>
       <Button
-        handleClick={(e) => fetchRentals(e)}
+        handleClick={(e: React.MouseEvent<HTMLButtonElement>) => fetchRentals(e)}
         classInfo="border border-solid border-neutral-400 ml-20 px-4 h-9 self-center"
       >
         Search
