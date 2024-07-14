@@ -29,7 +29,7 @@ const Rentals = () => {
   // };
 
   return (
-    <section className='m-auto md:w-[48rem] lg:bg-white lg:w-[61rem] xl:w-[69rem] flex flex-col items-center'>
+    <section className='m-auto md:w-[48rem] lg:bg-white lg:w-[61rem] xl:w-[69rem] flex flex-col items-center mb-4'>
     <div className="grid grid-cols-2 gap-0 md:w-[48rem] lg:bg-white lg:w-[61rem] xl:w-[69rem] m-auto">
       {rentalsToShow.map((rental) => (
         <div
