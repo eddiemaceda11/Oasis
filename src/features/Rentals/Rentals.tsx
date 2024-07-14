@@ -1,3 +1,4 @@
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { type RootState, type AppDispatch } from '../../store';
 import { updatePrice, setAvailibility } from './rentalsSlice';
@@ -15,7 +16,7 @@ const Rentals = () => {
     (state: RootState) => state.rentals.filteredRentals
   );
 
-  const [rentalsShowedLength, setRentalsShowedLength] = useState(6); 
+  const [rentalsShowedLength, setRentalsShowedLength] = useState<number>(6); 
 
   const rentalsToShow = filteredRentals.length > 0 ? filteredRentals.slice(0, rentalsShowedLength) : rentals.slice(0, rentalsShowedLength);
 
@@ -28,6 +29,7 @@ const Rentals = () => {
   // };
 
   return (
+    <section className='m-auto md:w-[48rem] lg:bg-white lg:w-[61rem] xl:w-[69rem] flex flex-col items-center'>
     <div className="grid grid-cols-2 gap-0 md:w-[48rem] lg:bg-white lg:w-[61rem] xl:w-[69rem] m-auto">
       {rentalsToShow.map((rental) => (
         <div
@@ -99,8 +101,13 @@ const Rentals = () => {
             </div>
           </div>
         </div>
-      ))}
+      ))}  
     </div>
+    <Button 
+     classInfo="border border-solid border-neutral-300 px-2 xl:px-5 xl:py-2 text-xs m-auto"
+     handleClick={() => setRentalsShowedLength((prevLength) => prevLength + 6)}
+    >Load More</Button>
+    </section>
   );
 };
 
