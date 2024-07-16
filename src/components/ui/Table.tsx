@@ -24,6 +24,7 @@ export const TableHero = () => {
   const dispatch: AppDispatch = useDispatch();
 
   // Create a localized array of properties to be able to adjust property prices UI
+  // TODO - Look into refactoring this by performing this action directly from redux
   const [properties, setProperties] = useState(rentalProperties);
 
   // Set a state for the how we want to sort our array - ASC/DESC

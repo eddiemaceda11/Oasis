@@ -20,7 +20,7 @@ const Booking = () => {
     e.preventDefault();
     dispatch(filterProperties(currentCity));
   };
-  console.log(currentCity);
+  
   return (
     <form className="flex border-solid border justify-center gap-3 mt-4 w-[60rem] h-20 m-auto items-center">
       <div className="w-32">
