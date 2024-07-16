@@ -12,6 +12,9 @@ import Booking from '../features/Booking/Booking';
 import { TableHero } from '../components/ui/Table';
 // import TableModal from '../components/ui/TableModal';
 
+// Tasks manager
+import Tasks from "../features/TaskManager/TaskManager";
+
 function App() {
   return (
     <div className="bg-white h-screen relative">
@@ -20,6 +23,7 @@ function App() {
       <h1 className="m-auto text-4xl font-semibold text-center w-[45rem] h-28">
         Customized Property Management Ensuring Your Peace of Mind
       </h1>
+      <Tasks />
       <Booking />
       <Rentals />
       <TableHero />

@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import rentalsReducer from './features/Rentals/rentalsSlice';
+import tasksReducer from "./features/TaskManager/taskManagerSlice";
 // import usersReducer from './app/pages/Login/LoginSlice';
 import { apiSlice } from './api/apiSlice';
 
@@ -13,6 +14,7 @@ import { apiSlice } from './api/apiSlice';
 export const store = configureStore({
   reducer: {
     rentals: rentalsReducer,
+    tasks: tasksReducer,
     // users: usersReducer,
     [apiSlice.reducerPath]: apiSlice.reducer,
   },
