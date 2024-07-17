@@ -1,40 +1,71 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addActivity } from "./taskManagerSlice";
 
-import { formatCurrentDateTime } from "@/hooks/formatDateTime";
+import ActivityFeed from "./components/ActivityFeed";
 
 // TODO - seperate necessary components into their own files
+
+type ModalProps = {
+  modalHidden: boolean;
+  setModalHidden: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
 const Tasks = () => {
   const [modalHidden, setModalHidden] = useState(true);
 
-  const activities = useSelector((state) => state.tasks.activities);
-  console.log("activities", activities);
-
   return (
-    <section className="border m-auto md:w-[48rem] lg:bg-white lg:w-[61rem] xl:w-[69rem] h-[72rem] items-center mb-4">
-      <QuickActions modalHidden={modalHidden} setModalHidden={setModalHidden}/>
-      {modalHidden ? "" : <TaskModal />}
-      <ActivityFeed activities={activities} />
+    <section className="flex justify-between items-start m-auto md:w-[48rem] lg:bg-white lg:w-[61rem] xl:w-[80rem] h-[72rem] mb-4">
+      <QuickActions modalHidden={modalHidden} setModalHidden={setModalHidden} />
+      {modalHidden ? (
+        ""
+      ) : (
+        <TaskModal modalHidden={modalHidden} setModalHidden={setModalHidden} />
+      )}
+      <ActivityFeed />
     </section>
   );
 };
 
-const QuickActions = ({modalHidden, setModalHidden}) => {
-  return (
-  <div className="border h-32">
-    <p className="bg-slate-100 pl-4 font-medium">Quick Actions</p>
-    <p className="pl-5 text-medium py-3">What would you like to do next?</p>
-    <button className="border" onClick={() => setModalHidden(!modalHidden)}>
-      Post an Update
-    </button>
-    <button className="border">New Work Order</button>
-    <button className="border">Complete Task</button>
-  </div>)
-}
+const QuickActions = ({ modalHidden, setModalHidden }: ModalProps) => {
+  const dispatch = useDispatch();
 
-const TaskModal = () => {
+  return (
+    <div className="border h-32 w-[45rem] rounded-lg">
+      <p className="bg-slate-100 pl-4 font-medium">Quick Actions</p>
+      <p className="pl-5 text-medium py-3">What would you like to do next?</p>
+      <div className="ml-5 flex gap-5 text-sm font-medium">
+        <button
+          className="border border-2 border-slate-600 rounded-md py-2 px-6"
+          onClick={() => setModalHidden(!modalHidden)}
+        >
+          <i className="fa-solid fa-pen-to-square mr-2"></i>
+          <span>Post an Update</span>
+        </button>
+        <button className="border border-2 border-slate-600 rounded-md py-2 px-6">
+          <i className="fa-regular fa-clipboard mr-2"></i>
+          <span>Update Task</span>
+        </button>
+        <button
+          className="border border-2 border-slate-600 rounded-md py-2 px-6"
+          onClick={() =>
+            dispatch(
+              addActivity({
+                name: "Eddie Maceda",
+                text: "Task Complete ✔",
+              })
+            )
+          }
+        >
+          <i className="fa-regular fa-calendar-check mr-2"></i>
+          <span>Complete Task</span>
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const TaskModal = ({ modalHidden, setModalHidden }: ModalProps) => {
   const [input, setInput] = useState("");
 
   const dispatch = useDispatch();
@@ -50,53 +81,19 @@ const TaskModal = () => {
         <button
           onClick={(e) => {
             e.preventDefault();
-            dispatch(addActivity(input));
+            dispatch(
+              addActivity({
+                name: "Eddie Maceda",
+                text: input,
+              })
+            );
             setInput("");
+            setModalHidden(!modalHidden);
           }}
         >
           Add
         </button>
       </form>
-    </div>
-  );
-};
-
-const ActivityFeed = ({ activities }: { activities: string[] }) => {
-  return (
-    <div className=" border rounded-lg bg-slate-100 h-[30rem] w-[34rem] overflow-hidden">
-      <p className="bg-slate-100 pl-3 py-1 font-medium">Activity Feed</p>
-      <div className="h-full bg-white">
-        <div className="p-3">
-          <div className="flex relative">
-           <i className="flex items-center justify-center fa-solid fa-user absolute text-xl h-10 w-10 bg-slate-100 rounded-[50%] text-slate-400"></i>
-           <p className="font-medium text-sm ml-14">John Doe updated this task</p>
-           <p className="font-medium text-xs ml-auto text-slate-500">{formatCurrentDateTime()}</p>
-           <></>
-          </div>
-          <p className="text-xs w-[18rem] ml-14">"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae, vel."</p>
-        </div>
-        <div className="p-3">
-          <div className="flex relative">
-           <i className="flex items-center justify-center fa-solid fa-user absolute text-xl h-10 w-10 bg-slate-100 rounded-[50%] text-slate-400"></i>
-           <p className="font-medium text-sm ml-14">John Doe updated this task</p>
-           <p className="font-medium text-xs ml-auto text-slate-500">{formatCurrentDateTime()}</p>
-           <></>
-          </div>
-          <p className="text-xs w-[18rem] ml-14">"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae, vel."</p>
-        </div>
-        <div className="p-3">
-          <div className="flex relative">
-           <i className="flex items-center justify-center fa-solid fa-user absolute text-xl h-10 w-10 bg-slate-100 rounded-[50%] text-slate-400"></i>
-           <p className="font-medium text-sm ml-14">John Doe updated this task</p>
-           <p className="font-medium text-xs ml-auto text-slate-500">{formatCurrentDateTime()}</p>
-           <></>
-          </div>
-          <p className="text-xs w-[18rem] ml-14">"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae, vel."</p>
-        </div>
-      </div>
-      {/* {activities.map((each) => (
-        <p key={each} >{each}</p>
-      ))} */}
     </div>
   );
 };
