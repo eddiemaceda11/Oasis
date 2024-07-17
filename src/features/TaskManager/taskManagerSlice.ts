@@ -1,6 +1,17 @@
 import {createSlice, current} from "@reduxjs/toolkit";
+import { formatCurrentDateTime } from "@/hooks/formatDateTime";
 
-const initialState = {
+type ActivityProps = {
+    name: string,
+    text: string,
+    timestamp: string
+}
+
+type InitialActivityState = {
+    activities: ActivityProps[]
+}
+
+const initialState: InitialActivityState = {
     activities: [],
 }
 
@@ -9,8 +20,14 @@ const tasksSlice = createSlice({
     initialState: initialState,
     reducers: {
         addActivity: (state, action) => {
+            const {name, text} = action.payload
+            const timestamp = formatCurrentDateTime();
             console.log(action.payload)
-            state.activities = state.activities.concat(action.payload)
+            state.activities = state.activities.concat({
+                name,
+                text,
+                timestamp
+            })
         }
     }
 })
