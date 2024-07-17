@@ -23,7 +23,7 @@ function App() {
       <h1 className="m-auto text-4xl font-semibold text-center w-[45rem] h-28">
         Customized Property Management Ensuring Your Peace of Mind
       </h1>
-      <Tasks />
+      {/* <Tasks /> */}
       <Booking />
       <Rentals />
       <TableHero />
