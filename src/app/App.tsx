@@ -19,15 +19,19 @@ function App() {
   return (
     <div className="bg-white h-screen relative">
       <Header />
-      {/* <LoginPage /> */}
       <h1 className="m-auto text-4xl font-semibold text-center w-[45rem] h-28">
-        Customized Property Management Ensuring Your Peace of Mind
+        Customize Property Management Ensuring Your Peace of Mind
       </h1>
-      {/* <Tasks /> */}
+
+      {/* TODO - Create a separate page for the Task Manager
+          w/ use of React Router.
+      */}
+      <Tasks />
+      {/*  */}
+
       <Booking />
       <Rentals />
       <TableHero />
-      {/* <TableModal /> */}
       <h1 className="mt-16">TEST</h1>
     </div>
   );
