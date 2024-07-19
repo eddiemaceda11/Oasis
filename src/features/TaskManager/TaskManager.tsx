@@ -16,59 +16,54 @@ type ModalProps = {
 };
 
 const Tasks = () => {
-  const [modalHidden, setModalHidden] = useState(true);
+  const [postQuickActionUpdate, setPostQuickActionUpdate] = useState(false);
 
   return (
-    <section className="flex justify-between items-start m-auto md:w-[48rem] lg:bg-white lg:w-[61rem] xl:w-[80rem] h-[32rem] mb-4">
+    <section className="relative flex justify-between items-start m-auto md:w-[48rem] lg:bg-white lg:w-[61rem] xl:w-[80rem] h-[32rem] mb-4">
       <div>
         <QuickActions
-          modalHidden={modalHidden}
-          setModalHidden={setModalHidden}
+          postQuickActionUpdate={postQuickActionUpdate}
+          setPostQuickActionUpdate={setPostQuickActionUpdate}
         />
         <TaskDetails />
         <TaskDescription />
       </div>
-      {modalHidden ? (
-        ""
-      ) : (
-        <TaskModal modalHidden={modalHidden} setModalHidden={setModalHidden} />
-      )}
       <ActivityFeed />
     </section>
   );
 };
 
-const TaskModal = ({ modalHidden, setModalHidden }: ModalProps) => {
-  const [input, setInput] = useState("");
+// const TaskModal = ({ modalHidden, setModalHidden }: ModalProps) => {
+//   const [input, setInput] = useState("");
 
-  const dispatch = useDispatch();
+//   const dispatch = useDispatch();
 
-  return (
-    <div>
-      <form>
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-        />
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            dispatch(
-              addActivity({
-                name: "Eddie Maceda",
-                text: input,
-              })
-            );
-            setInput("");
-            setModalHidden(!modalHidden);
-          }}
-        >
-          Add
-        </button>
-      </form>
-    </div>
-  );
-};
+//   return (
+//     <div className="bg-black absolute h-[20rem] w-[30rem] top-36">
+//       <form>
+//         <input
+//           type="text"
+//           value={input}
+//           onChange={(e) => setInput(e.target.value)}
+//         />
+//         <button
+//           onClick={(e) => {
+//             e.preventDefault();
+//             dispatch(
+//               addActivity({
+//                 name: "Eddie Maceda",
+//                 text: input,
+//               })
+//             );
+//             setInput("");
+//             setModalHidden(!modalHidden);
+//           }}
+//         >
+//           Add
+//         </button>
+//       </form>
+//     </div>
+//   );
+// };
 
 export default Tasks;
