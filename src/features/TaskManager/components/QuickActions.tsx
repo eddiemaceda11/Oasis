@@ -9,12 +9,12 @@ type ModalProps = {
 };
 
 const QuickActions = ({ postQuickActionUpdate, setPostQuickActionUpdate }: ModalProps) => {
-    const [input, setInput] = useState('hi')
+    const [input, setInput] = useState('')
 
     const dispatch = useDispatch();
 
     return (
-        <div className="border h-36 w-[45rem] rounded-lg">
+        <div className="border h-36 w-[45rem] rounded-lg shadow-md">
             <p className="bg-slate-100 pl-4 font-medium py-1">Quick Actions</p>
             {!postQuickActionUpdate ? <div>
                 <p className="pl-5 text-medium py-3">What would you like to do next?</p>
@@ -57,6 +57,7 @@ const QuickActions = ({ postQuickActionUpdate, setPostQuickActionUpdate }: Modal
                                 name: "Eddie Maceda",
                                 text: input,
                             }))
+                            setInput("")
                             setPostQuickActionUpdate(!postQuickActionUpdate)}
                         }
                     >Post</button>
