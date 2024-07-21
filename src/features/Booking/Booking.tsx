@@ -1,6 +1,7 @@
 import Button from '../../components/ui/Button';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import React from 'react'
 import { type RootState, type AppDispatch } from '../../store';
 import { filterProperties } from '../Rentals/rentalsSlice';
 import TremorDateRangePicker from './TremorDateRangePicker';
@@ -9,7 +10,6 @@ const color = 'white';
 
 const Booking = () => {
   const [currentCity, setCurrentCity] = useState('');
-  // key - X-Api-Key=kR45iXLWKwMTwgAuM6XXhw==wxyB7IqDNzZUjBem
   const [dropdownCities, setDropdownCities] = useState([]);
 
   const rentals = useSelector((state: RootState) => state.rentals);
@@ -20,7 +20,7 @@ const Booking = () => {
     e.preventDefault();
     dispatch(filterProperties(currentCity));
   };
-  
+ 
   return (
     <form className="flex border-solid border justify-center gap-3 mt-4 w-[60rem] h-20 m-auto items-center">
       <div className="w-32">
@@ -88,23 +88,3 @@ const Booking = () => {
 
 export default Booking;
 
-// useEffect(() => {
-//   try {
-//     fetch('https://api.api-ninjas.com/v1/city?name=San Antonio')
-//       .then((res) => res.json())
-//       .then((data) => {
-//         if (Array.isArray(data) && data.length > 0) {
-//           setCurrentCity(data[0].name);
-//         } else {
-//           console.error('no city data found');
-//         }
-//       })
-//       .catch((error) => {
-//         console.error(error);
-//       });
-//   } catch (err) {
-//     console.log('Data not found');
-//   }
-// }, []);
-
-// fetch city
