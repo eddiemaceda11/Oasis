@@ -1,6 +1,6 @@
 const TaskDescription = () => {
     return (
-      <div className="border h-[10.95rem] w-[45rem] rounded-lg mt-4">
+      <div className="border h-[10.95rem] w-[45rem] rounded-lg mt-4 shadow-md">
         <p className="bg-slate-100 pl-4 font-medium py-1">Description</p>
         <div className="flex">
           <div>
