@@ -1,12 +1,13 @@
 import { useSelector } from "react-redux";
 import { type RootState } from "../../../store";
+import React from 'react';
 
 const ActivityFeed = () => {
   const activities = useSelector((state: RootState) => state.tasks.activities);
   console.log("activities", activities);
 
   return (
-    <div className=" border rounded-lg bg-slate-100 h-[30rem] w-[34rem] overflow-hidden">
+    <div className=" border rounded-lg bg-slate-100 h-[30rem] w-[34rem] overflow-hidden shadow-md">
       <p className="bg-slate-100 pl-3 py-1 font-medium">Activity Feed</p>
       <div className="h-full bg-white">
         {activities.length < 1 && <p className="ml-3 pt-3 italic">No activies logged...</p>}
