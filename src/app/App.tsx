@@ -1,5 +1,8 @@
+import React from 'react'
+
 // Pages
 import LoginPage from './pages/Login/LoginPage';
+import DashboardPage from './pages/Dashboard/Dashboard';
 
 // Layouts
 import Header from '../components/layouts/Header';
@@ -18,21 +21,18 @@ import Tasks from "../features/TaskManager/TaskManager";
 function App() {
   return (
     <div className="bg-white h-screen relative">
-      <Header />
+      <DashboardPage />
+      {/* <Header />
       <h1 className="m-auto text-4xl font-semibold text-center w-[45rem] h-28">
         Customize Property Management Ensuring Your Peace of Mind
       </h1>
-
-      {/* TODO - Create a separate page for the Task Manager
-          w/ use of React Router.
-      */}
+      
       <Tasks />
-      {/*  */}
-
+     
       <Booking />
       <Rentals />
       <TableHero />
-      <h1 className="mt-16">TEST</h1>
+      <h1 className="mt-16">TEST</h1> */}
     </div>
   );
 }

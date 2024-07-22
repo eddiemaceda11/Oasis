@@ -14,7 +14,7 @@ const QuickActions = ({ postQuickActionUpdate, setPostQuickActionUpdate }: Modal
     const dispatch = useDispatch();
 
     return (
-        <div className="border h-36 w-[45rem] rounded-lg shadow-md">
+        <div className="border h-36 w-[45rem] rounded-lg shadow bg-white">
             <p className="bg-slate-100 pl-4 font-medium py-1">Quick Actions</p>
             {!postQuickActionUpdate ? <div>
                 <p className="pl-5 text-medium py-3">What would you like to do next?</p>

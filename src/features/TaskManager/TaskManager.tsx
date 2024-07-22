@@ -11,7 +11,7 @@ const Tasks = () => {
   const [postQuickActionUpdate, setPostQuickActionUpdate] = useState(false);
 
   return (
-    <section className="relative flex justify-between items-start m-auto md:w-[48rem] lg:bg-white lg:w-[61rem] xl:w-[80rem] h-[32rem] mb-4">
+    <section className="relative flex justify-center gap-4 items-start w-full h-[32rem] mb-4 pt-4">
       <div>
         <QuickActions
           postQuickActionUpdate={postQuickActionUpdate}
