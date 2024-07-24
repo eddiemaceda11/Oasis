@@ -15,7 +15,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "isolatedModules": true,
+    "isolatedModules": false, // updated to false for netlify deployment
     "noEmit": true,
     "jsx": "react-jsx"
   },
