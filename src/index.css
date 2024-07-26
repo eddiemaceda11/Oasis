@@ -2,17 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+html {
   height: 100%;
-  /* overflow: hidden; */
 }
 
-:root {
+body {
   height: 100%;
+}
+
+div#root {
+  height: 100%; /* remove this line to see div.app is no more 100% height */
+  /* background-color: indigo;
+  padding: 0 30px; */
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+div.app {
+  height: 100%;
+  background-color: cornsilk;
 }
 
 /* SCROLLBAR */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   height: 7px;
   width: 7px;
 }
@@ -28,6 +40,6 @@ body {
 
 ::-webkit-scrollbar-corner {
   background: rgba(19, 19, 19, 0.1);
-}
+} */
 
 /* END SCROLLBAR */

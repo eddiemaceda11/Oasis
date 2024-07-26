@@ -1,82 +1,81 @@
 import { useState } from "react";
 import React from "react";
 
-
 const sidebarData = [
-    {
-      title: "Dashboard",
-      selections: [
-        {
-          selection: "Home",
-          image: "fa-solid fa-warehouse",
-        },
-      ],
-    },
-    {
-      title: "Pages",
-      selections: [
-        {
-          selection: "Orders",
-          image: "fa-solid fa-money-check-dollar",
-        },
-        {
-          selection: "Employees",
-          image: "fa-solid fa-user-tie",
-        },
-        {
-          selection: "Customers",
-          image: "fa-solid fa-bag-shopping",
-        },
-      ],
-    },
-    {
-      title: "Apps",
-      selections: [
-        {
-          selection: "Calender",
-          image: "fa-solid fa-calendar-days",
-        },
-        {
-          selection: "Themes",
-          image: "fa-solid fa-palette",
-        },
-        {
-          selection: "Editor",
-          image: "fa-solid fa-pen-to-square",
-        },
-      ],
-    },
-    {
-      title: "Charts",
-      selections: [
-        {
-          selection: "Line Chart",
-          image: "fa-solid fa-chart-line",
-        },
-        {
-          selection: "Area Chart",
-          image: "fa-solid fa-chart-area",
-        },
-        {
-          selection: "Bar Chart",
-          image: "fa-solid fa-chart-simple",
-        },
-      ],
-    },
-    {
-      title: "Support",
-      selections: [
-        {
-          selection: "Live Chat",
-          image: "fa-solid fa-headset",
-        },
-        {
-          selection: "Email",
-          image: "fa-solid fa-envelope",
-        },
-      ],
-    },
-  ];
+  {
+    title: "Dashboard",
+    selections: [
+      {
+        selection: "Home",
+        image: "fa-solid fa-warehouse",
+      },
+    ],
+  },
+  {
+    title: "Pages",
+    selections: [
+      {
+        selection: "Tasks",
+        image: "fa-solid fa-money-check-dollar",
+      },
+      {
+        selection: "Employees",
+        image: "fa-solid fa-user-tie",
+      },
+      {
+        selection: "Customers",
+        image: "fa-solid fa-bag-shopping",
+      },
+    ],
+  },
+  {
+    title: "Apps",
+    selections: [
+      {
+        selection: "Calender",
+        image: "fa-solid fa-calendar-days",
+      },
+      {
+        selection: "Themes",
+        image: "fa-solid fa-palette",
+      },
+      {
+        selection: "Editor",
+        image: "fa-solid fa-pen-to-square",
+      },
+    ],
+  },
+  {
+    title: "Charts",
+    selections: [
+      {
+        selection: "Line Chart",
+        image: "fa-solid fa-chart-line",
+      },
+      {
+        selection: "Area Chart",
+        image: "fa-solid fa-chart-area",
+      },
+      {
+        selection: "Bar Chart",
+        image: "fa-solid fa-chart-simple",
+      },
+    ],
+  },
+  {
+    title: "Support",
+    selections: [
+      {
+        selection: "Live Chat",
+        image: "fa-solid fa-headset",
+      },
+      {
+        selection: "Email",
+        image: "fa-solid fa-envelope",
+      },
+    ],
+  },
+];
 
 export default function Sidebar() {
   const [sidebarIsOpen, setSidebarIsOpen] = useState(true);
@@ -88,7 +87,7 @@ export default function Sidebar() {
   // bg-[#fbfbfb]
 
   return (
-    <section className={sidebarIsOpen ? "bg-[#f8f9fb] min-w-[250px] [transition:0.5s] overflow-y-auto border-r-[1px]" : "bg-[grey] h-screen w-[0] [transition:0.5s]"}>
+    <section className={sidebarIsOpen ? "bg-[#f8f9fb] min-w-[250px] [transition:0.5s]  border-r-[1px] overflow-scroll h-full" : "bg-[grey] w-[0] [transition:0.5s] h-full"}>
       <div className="px-[1.3rem] py-[0] w-full">
         {sidebarIsOpen && (
           <div className="">
@@ -109,7 +108,9 @@ export default function Sidebar() {
                         key={selection.selection}
                       >
                         <i className={`${selection.image} pb-[1.5px] text-[15px] pl-4`}></i>
-                        <li className="flex pl-[1.1rem] text-[13px] items-center [list-style:none] cursor-pointer h-[2.1rem] border-[1px] border-[solid] border-[transparent] w-full hover:cursor-pointer hover:bg-[#bbdefb] hover:rounded-[4px] hover:[transition:0.01s] font-normal">{selection.selection}</li>
+                        <li className="flex pl-[1.1rem] text-[13px] items-center [list-style:none] cursor-pointer h-[2.1rem] border-[1px] border-[solid] border-[transparent] w-full hover:cursor-pointer hover:bg-[#bbdefb] hover:rounded-[4px] hover:[transition:0.01s] font-normal">
+                          {selection.selection}
+                        </li>
                       </div>
                     ))}
                   </ul>
