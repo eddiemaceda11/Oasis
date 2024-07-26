@@ -14,8 +14,8 @@ div#root {
   height: 100%; /* remove this line to see div.app is no more 100% height */
   /* background-color: indigo;
   padding: 0 30px; */
-  overflow-x: hidden;
-  overflow-y: hidden;
+  /* overflow-x: hidden;
+  overflow-y: hidden; */
 }
 
 div.app {

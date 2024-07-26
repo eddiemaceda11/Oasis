@@ -22,18 +22,16 @@ function App() {
   return (
     <div className="h-full overflow-x-hidden">
       <div className="m-auto h-full overflow-x-hidden">
-        <DashboardPage />
-        {/* <Header />
-      <h1 className="m-auto text-4xl font-semibold text-center w-[45rem] h-28">
-        Customize Property Management Ensuring Your Peace of Mind
-      </h1>
-      
-      <Tasks />
-     
-      <Booking />
-      <Rentals />
-      <TableHero />
-      <h1 className="mt-16">TEST</h1> */}
+        {/* <DashboardPage /> */}
+        <Header />
+        <h1 className="m-auto text-4xl font-semibold text-center w-[45rem] h-28">Customize Property Management Ensuring Your Peace of Mind</h1>
+
+        <Tasks />
+
+        <Booking />
+        <Rentals />
+        <TableHero />
+        <h1 className="mt-16">TEST</h1>
       </div>
     </div>
   );
