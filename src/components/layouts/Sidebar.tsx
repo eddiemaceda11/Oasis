@@ -1,5 +1,5 @@
 import { useState } from "react";
-import React from "react";
+import { Link } from "react-router-dom";
 
 const sidebarData = [
   {
@@ -92,7 +92,12 @@ export default function Sidebar() {
         {sidebarIsOpen && (
           <div className="">
             <div className="h-[8%] flex items-center justify-between mt-4">
-              <p className="font-bold text-[1.5rem] border-b-[2px] pb-[12px] w-[99%]">Oasis</p>
+              <Link
+                to="/"
+                className="cursor-pointer font-bold text-[1.5rem] border-b-[2px] pb-[12px] w-[99%]"
+              >
+                Oasis
+              </Link>
             </div>
             <div className="h-[92%]">
               {sidebarData.map((data) => (
