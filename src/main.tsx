@@ -7,7 +7,9 @@ import { Provider } from "react-redux";
 import { create } from "domain";
 
 import App from "./app/App";
+
 import DashboardPage from "./app/pages/Dashboard/Dashboard";
+import Tasks from "./features/TaskManager/TaskManager";
 
 import { createBrowserRouter, RouterProvider, Route, Link } from "react-router-dom";
 
@@ -19,6 +21,20 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <DashboardPage />,
+    children: [
+      {
+        index: true,
+        element: <Tasks />,
+      },
+      {
+        path: "home",
+        element: <div>Home</div>,
+      },
+      {
+        path: "tasks",
+        element: <Tasks />,
+      },
+    ],
   },
 ]);
 

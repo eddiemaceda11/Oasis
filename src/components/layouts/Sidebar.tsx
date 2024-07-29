@@ -8,6 +8,7 @@ const sidebarData = [
       {
         selection: "Home",
         image: "fa-solid fa-warehouse",
+        path: "home",
       },
     ],
   },
@@ -17,14 +18,17 @@ const sidebarData = [
       {
         selection: "Tasks",
         image: "fa-solid fa-money-check-dollar",
+        path: "tasks",
       },
       {
         selection: "Employees",
         image: "fa-solid fa-user-tie",
+        path: "employees",
       },
       {
         selection: "Customers",
         image: "fa-solid fa-bag-shopping",
+        path: "customers",
       },
     ],
   },
@@ -34,14 +38,17 @@ const sidebarData = [
       {
         selection: "Calender",
         image: "fa-solid fa-calendar-days",
+        path: "apps",
       },
       {
         selection: "Themes",
         image: "fa-solid fa-palette",
+        path: "themes",
       },
       {
         selection: "Editor",
         image: "fa-solid fa-pen-to-square",
+        path: "editor",
       },
     ],
   },
@@ -51,14 +58,17 @@ const sidebarData = [
       {
         selection: "Line Chart",
         image: "fa-solid fa-chart-line",
+        path: "line-chart",
       },
       {
         selection: "Area Chart",
         image: "fa-solid fa-chart-area",
+        path: "area-chart",
       },
       {
         selection: "Bar Chart",
         image: "fa-solid fa-chart-simple",
+        path: "bar-chart",
       },
     ],
   },
@@ -68,10 +78,12 @@ const sidebarData = [
       {
         selection: "Live Chat",
         image: "fa-solid fa-headset",
+        path: "live-chat",
       },
       {
         selection: "Email",
         image: "fa-solid fa-envelope",
+        path: "email",
       },
     ],
   },
@@ -108,15 +120,17 @@ export default function Sidebar() {
                   <p className="mb-1 cursor-default font-medium text-[17px]">{data.title}</p>
                   <ul>
                     {data.selections.map((selection) => (
-                      <div
-                        className="flex items-center hover:cursor-pointer hover:bg-[#bbdefb] hover:rounded-[4px] hover:[transition:0.01s]"
-                        key={selection.selection}
-                      >
-                        <i className={`${selection.image} pb-[1.5px] text-[15px] pl-4`}></i>
-                        <li className="flex pl-[1.1rem] text-[13px] items-center [list-style:none] cursor-pointer h-[2.1rem] border-[1px] border-[solid] border-[transparent] w-full hover:cursor-pointer hover:bg-[#bbdefb] hover:rounded-[4px] hover:[transition:0.01s] font-normal">
-                          {selection.selection}
-                        </li>
-                      </div>
+                      <Link to={selection.path}>
+                        <div
+                          className="flex items-center hover:cursor-pointer hover:bg-[#bbdefb] hover:rounded-[4px] hover:[transition:0.01s]"
+                          key={selection.selection}
+                        >
+                          <i className={`${selection.image} pb-[1.5px] text-[15px] pl-4`}></i>
+                          <li className="flex pl-[1.1rem] text-[13px] items-center [list-style:none] cursor-pointer h-[2.1rem] border-[1px] border-[solid] border-[transparent] w-full hover:cursor-pointer hover:bg-[#bbdefb] hover:rounded-[4px] hover:[transition:0.01s] font-normal">
+                            {selection.selection}
+                          </li>
+                        </div>
+                      </Link>
                     ))}
                   </ul>
                 </div>

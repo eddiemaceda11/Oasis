@@ -1,6 +1,5 @@
 import Sidebar from "../../../components/layouts/Sidebar";
-import Tasks from "../../../features/TaskManager/TaskManager";
-import React from "react";
+import { Outlet } from "react-router";
 
 const DashboardPage = () => {
   return (
@@ -8,7 +7,7 @@ const DashboardPage = () => {
       <div className="flex flex-1 h-full justify-between overflow-scroll">
         <Sidebar />
         <div className="w-full flex flex-col ">
-          <Tasks />
+          <Outlet />
         </div>
       </div>
     </div>
