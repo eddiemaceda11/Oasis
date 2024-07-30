@@ -21,9 +21,9 @@ const sidebarData = [
         path: "tasks",
       },
       {
-        selection: "Employees",
+        selection: "Tenants",
         image: "fa-solid fa-user-tie",
-        path: "employees",
+        path: "tenants",
       },
       {
         selection: "Customers",
@@ -120,12 +120,12 @@ export default function Sidebar() {
                   <p className="mb-1 cursor-default font-medium text-[17px]">{data.title}</p>
                   <ul>
                     {data.selections.map((selection) => (
-                      <Link to={selection.path}>
-                        <div
-                          className="flex items-center hover:cursor-pointer hover:bg-[#bbdefb] hover:rounded-[4px] hover:[transition:0.01s]"
-                          key={selection.selection}
-                        >
-                          <i className={`${selection.image} pb-[1.5px] text-[15px] pl-4`}></i>
+                      <Link
+                        to={selection.path}
+                        key={selection.selection}
+                      >
+                        <div className="flex items-center hover:cursor-pointer hover:bg-[#bbdefb] hover:rounded-[4px] hover:[transition:0.01s]">
+                          <i className={`${selection.image} pb-[1.5px] text-[15px] pl-4 w-10`}></i>
                           <li className="flex pl-[1.1rem] text-[13px] items-center [list-style:none] cursor-pointer h-[2.1rem] border-[1px] border-[solid] border-[transparent] w-full hover:cursor-pointer hover:bg-[#bbdefb] hover:rounded-[4px] hover:[transition:0.01s] font-normal">
                             {selection.selection}
                           </li>
