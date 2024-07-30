@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <header className="h-16 w-screen border border-solid mb-12">
@@ -19,7 +21,12 @@ const Navbar = () => {
       <a className="hover:text-sky-500 cursor-pointer">Buy</a>
       <a className="hover:text-sky-500 cursor-pointer">Sell</a>
       <a className="hover:text-sky-500 cursor-pointer">Manage properties</a>
-      <a className="hover:text-sky-500 cursor-pointer">Virtual Tour</a>
+      <Link
+        to="dashboard"
+        className="hover:text-sky-500 cursor-pointer"
+      >
+        Dashboard
+      </Link>
     </nav>
   );
 };
@@ -29,15 +36,11 @@ const Notifications = () => {
     <div className="ml-auto flex content-center">
       <div className="mr-3 border border-slate-300 rounded-[50%] h-10 w-10 flex justify-center items-center relative">
         <i className="fa-regular fa-bell h-[16px] mr-[.7px]"></i>
-        <div className="flex justify-center items-center absolute text-[0.65rem] bg-sky-500 text-white rounded-[50%] h-5 w-5 top-[-15%] right-[-20%] font-semibold">
-          23
-        </div>
+        <div className="flex justify-center items-center absolute text-[0.65rem] bg-sky-500 text-white rounded-[50%] h-5 w-5 top-[-15%] right-[-20%] font-semibold">23</div>
       </div>
       <div className="border border-slate-300  rounded-[50%] h-10 w-10 flex justify-center items-center relative">
         <i className="fa-regular fa-message mr-[.7px] mt-[1px]"></i>
-        <div className="flex justify-center items-center absolute text-[0.65rem] bg-sky-500 text-white rounded-[50%] h-5 w-5 top-[-15%] right-[-20%] font-semibold">
-          11
-        </div>
+        <div className="flex justify-center items-center absolute text-[0.65rem] bg-sky-500 text-white rounded-[50%] h-5 w-5 top-[-15%] right-[-20%] font-semibold">11</div>
       </div>
     </div>
   );
