@@ -10,6 +10,7 @@ import App from "./app/App";
 
 import DashboardPage from "./app/pages/Dashboard/Dashboard";
 import Tasks from "./features/TaskManager/TaskManager";
+import TenantsTable from "@/features/Tenants/Tenants";
 
 import { createBrowserRouter, RouterProvider, Route, Link } from "react-router-dom";
 
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "tasks",
         element: <Tasks />,
+      },
+      {
+        path: "tenants",
+        element: <TenantsTable />,
       },
     ],
   },
