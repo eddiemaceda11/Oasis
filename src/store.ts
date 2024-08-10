@@ -1,8 +1,9 @@
-import { configureStore } from '@reduxjs/toolkit';
-import rentalsReducer from './features/Rentals/rentalsSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import rentalsReducer from "./features/Rentals/rentalsSlice";
 import tasksReducer from "./features/TaskManager/taskManagerSlice";
+import tenantsReducer from "./features/Tenants/tenantsSlice";
 // import usersReducer from './app/pages/Login/LoginSlice';
-import { apiSlice } from './api/apiSlice';
+import { apiSlice } from "./api/apiSlice";
 
 /* RTK QUERY NOTES
   We can reuse the apiSlice.reducerPath field as a computed key in the reducer parameter, to ensure that the caching reducer is added in the right place.
@@ -15,11 +16,11 @@ export const store = configureStore({
   reducer: {
     rentals: rentalsReducer,
     tasks: tasksReducer,
+    tenants: tenantsReducer,
     // users: usersReducer,
     [apiSlice.reducerPath]: apiSlice.reducer,
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(apiSlice.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware),
 });
 
 // Since we are using TS, we need the to infer the "Rootstate" and "AppDispatch" type from the store itself
