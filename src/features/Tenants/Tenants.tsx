@@ -1,14 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
 import { filterTenants } from "./tenantsSlice";
 import { Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from "@tremor/react";
+import { type RootState } from "@/store";
 
 const TenantsTable = () => {
-  const tenants = useSelector((state) => state.tenants.tenantsState);
-  const search = useSelector((state) => state.tenants.search);
+  const tenants = useSelector((state: RootState) => state.tenants.tenantsState);
+  const search = useSelector((state: RootState) => state.tenants.search);
   const tenantsToShow = search !== "" ? tenants.filter((tenant) => tenant.toLowerCase().includes(search.toLowerCase())) : tenants;
   const dispatch = useDispatch();
 
-  const handleFilter = (e) => {
+  const handleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(filterTenants(e.target.value));
   };
 
