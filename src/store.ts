@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import rentalsReducer from "./features/Rentals/rentalsSlice";
-import tasksReducer from "./features/TaskManager/taskManagerSlice";
-import tenantsReducer from "./features/Tenants/tenantsSlice";
+import rentalsReducer from "./features/Home/Rentals/rentalsSlice";
+import tasksReducer from "./features/Dashboard/TaskManager/taskManagerSlice";
+import tenantsReducer from "./features/Dashboard/Tenants/tenantsSlice";
 // import usersReducer from './app/pages/Login/LoginSlice';
 import { apiSlice } from "./api/apiSlice";
 
