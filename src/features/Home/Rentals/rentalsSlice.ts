@@ -1,5 +1,5 @@
-import { rentalsData, type RentalProps } from '../../data/properties';
-import { createSlice, current } from '@reduxjs/toolkit';
+import { rentalsData, type RentalProps } from "../../../data/properties";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 // Define the initial state type
 type InitialRentalsProps = {
@@ -15,14 +15,12 @@ const initialState: InitialRentalsProps = {
 
 // Create the rentals slice
 const rentalsSlice = createSlice({
-  name: 'rentals',
+  name: "rentals",
   initialState,
   reducers: {
     updatePrice: (state, action) => {
       // Update rentalsData based on action payload
-      state.rentalsData = state.rentalsData.map((rental) =>
-        rental.name !== action.payload.name ? rental : action.payload
-      );
+      state.rentalsData = state.rentalsData.map((rental) => (rental.name !== action.payload.name ? rental : action.payload));
     },
     setAvailibility: (state, action) => {
       const rentalCity = action.payload.city;
@@ -37,27 +35,19 @@ const rentalsSlice = createSlice({
 
       // Update filteredRentals if it's filtered, otherwise update rentalsData
       if (state.filteredRentals.length > 0) {
-        state.filteredRentals = state.filteredRentals.map((rental) =>
-          toggleAvailability(rental)
-        );
+        state.filteredRentals = state.filteredRentals.map((rental) => toggleAvailability(rental));
       } else {
-        state.rentalsData = state.rentalsData.map((rental) =>
-          toggleAvailability(rental)
-        );
+        state.rentalsData = state.rentalsData.map((rental) => toggleAvailability(rental));
       }
     },
     filterProperties: (state, action) => {
-      state.filteredRentals = state.rentalsData.filter(
-        (rental) => rental.city === action.payload
-      );
+      state.filteredRentals = state.rentalsData.filter((rental) => rental.city === action.payload);
     },
     filterPriceOrder: (state, action) => {
-      if (action.payload === 'sort') {
-        console.log('sort');
-        const sortByKey =
-          (key: keyof RentalProps) => (a: RentalProps, b: RentalProps) =>
-            a[key] > b[key] ? 1 : -1;
-        state.rentalsData = state.rentalsData.sort(sortByKey('price'));
+      if (action.payload === "sort") {
+        console.log("sort");
+        const sortByKey = (key: keyof RentalProps) => (a: RentalProps, b: RentalProps) => a[key] > b[key] ? 1 : -1;
+        state.rentalsData = state.rentalsData.sort(sortByKey("price"));
       }
       console.log(current(state.rentalsData));
     },
@@ -67,12 +57,10 @@ const rentalsSlice = createSlice({
         return state;
       }
 
-      const propertyToUpdate = state.rentalsData.find(
-        (rental) => rental.id === id
-      );
+      const propertyToUpdate = state.rentalsData.find((rental) => rental.id === id);
 
       if (propertyToUpdate) {
-        console.log('hi');
+        console.log("hi");
         state.rentalsData = state.rentalsData.map((property) =>
           property.id === propertyToUpdate.id
             ? {
@@ -88,12 +76,6 @@ const rentalsSlice = createSlice({
 
 // Action creators are generated for each reducer function case
 // ***ex/ export const {addRental} = rentalsSlice.actions
-export const {
-  updatePrice,
-  setAvailibility,
-  filterProperties,
-  updateTablePrice,
-  filterPriceOrder,
-} = rentalsSlice.actions;
+export const { updatePrice, setAvailibility, filterProperties, updateTablePrice, filterPriceOrder } = rentalsSlice.actions;
 
 export default rentalsSlice.reducer;

@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 // Pages
@@ -6,7 +5,7 @@ import LoginPage from "./pages/Login/LoginPage";
 import DashboardPage from "./pages/Dashboard/Dashboard";
 
 // Layouts
-import Header from "../components/layouts/Header";
+import Header from "../components/layouts/Dashboard/Header";
 
 // Features
 import Rentals from "../features/Home/Rentals/Rentals";

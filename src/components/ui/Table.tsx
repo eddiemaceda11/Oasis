@@ -1,25 +1,16 @@
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeaderCell,
-  TableRow,
-} from '@tremor/react';
+import { Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from "@tremor/react";
 
-import TableModal from './TableModal';
+// import TableModal from "./TableModal";
 
-import { useSelector, useDispatch } from 'react-redux';
-import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
 
-import { type RootState, type AppDispatch } from '../../store';
-import { type RentalProps } from '../../data/properties';
+import { type RootState, type AppDispatch } from "../../store";
+import { type RentalProps } from "../../data/properties";
 
 export const TableHero = () => {
   // Get the current array of rental properties from Redux store
-  const rentalProperties = useSelector(
-    (state: RootState) => state.rentals.rentalsData
-  );
+  const rentalProperties = useSelector((state: RootState) => state.rentals.rentalsData);
 
   const dispatch: AppDispatch = useDispatch();
 
@@ -28,13 +19,13 @@ export const TableHero = () => {
   const [properties, setProperties] = useState(rentalProperties);
 
   // Set a state for the how we want to sort our array - ASC/DESC
-  const [currentPriceSort, setCurrentPriceSort] = useState('asc');
+  const [currentPriceSort, setCurrentPriceSort] = useState("asc");
 
   // Property to edit
   const [propertyToEdit, setPropertyToEdit] = useState<number>();
   console.log(propertyToEdit);
-  
-// Function that will sort the price of our properties in the Table
+
+  // Function that will sort the price of our properties in the Table
   function sortByPrice() {
     /** 
       *In order to be able to sort by price through this array of objects,
@@ -49,23 +40,19 @@ export const TableHero = () => {
     */
 
     // Sort ascending
-    const sortByKeyAsc =
-      (key: keyof RentalProps) => (a: RentalProps, b: RentalProps) =>
-        a[key] > b[key] ? 1 : -1;
+    const sortByKeyAsc = (key: keyof RentalProps) => (a: RentalProps, b: RentalProps) => a[key] > b[key] ? 1 : -1;
     // Sort descending
-    const sortByKeyDesc =
-      (key: keyof RentalProps) => (a: RentalProps, b: RentalProps) =>
-        a[key] < b[key] ? 1 : -1;
+    const sortByKeyDesc = (key: keyof RentalProps) => (a: RentalProps, b: RentalProps) => a[key] < b[key] ? 1 : -1;
 
     // Set variable to the current sort function we intend to use (asc/desc)
-    let currentSort = currentPriceSort === 'asc' ? sortByKeyAsc : sortByKeyDesc;
+    let currentSort = currentPriceSort === "asc" ? sortByKeyAsc : sortByKeyDesc;
 
     // Create a copy of the current rentals array
     const newArr = [...properties];
     // Update the rentals array with the sorted array
-    setProperties(newArr.sort(currentSort('price')));
+    setProperties(newArr.sort(currentSort("price")));
     // Toggle the type of sort order to perform on the next sort click
-    setCurrentPriceSort(currentPriceSort === 'asc' ? 'desc' : 'asc');
+    setCurrentPriceSort(currentPriceSort === "asc" ? "desc" : "asc");
   }
 
   // Update the State anytime the rentalProperties state changes
@@ -93,7 +80,10 @@ export const TableHero = () => {
       <Table className="overflow-scroll h-[26rem] w-full">
         <TableBody className="">
           {properties.map((property) => (
-            <TableRow className="w-full" key={property.id}>
+            <TableRow
+              className="w-full"
+              key={property.id}
+            >
               <TableCell className="text-center">{property.id}</TableCell>
               <TableCell className="text-left">{property.name}</TableCell>
               <TableCell
@@ -105,19 +95,17 @@ export const TableHero = () => {
               <TableCell className="text-center">
                 {property.city}, {property.state}
               </TableCell>
-              <TableCell className="text-center">
-                {property.available ? 'Vacant' : 'Occupied'}
-              </TableCell>
+              <TableCell className="text-center">{property.available ? "Vacant" : "Occupied"}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
-      {propertyToEdit ? <TableModal propertyId={propertyToEdit} /> : ''}
+      {/* {propertyToEdit ? <TableModal propertyId={propertyToEdit} /> : ''} */}
     </div>
   );
 };
 
- /* 
+/* 
   Do not sort the entire state, since the sort only affects the UI, 
   use/perform the sort locally within this component
   */

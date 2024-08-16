@@ -1,15 +1,13 @@
-import Button from '../../components/ui/Button';
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import React from 'react'
-import { type RootState, type AppDispatch } from '../../store';
-import { filterProperties } from '../Rentals/rentalsSlice';
-import TremorDateRangePicker from './TremorDateRangePicker';
-
-const color = 'white';
+import Button from "../../../components/ui/Button";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { type RootState, type AppDispatch } from "../../../store";
+import { filterProperties } from "../Rentals/rentalsSlice";
+import TremorDateRangePicker from "./TremorDateRangePicker";
 
 const Booking = () => {
-  const [currentCity, setCurrentCity] = useState('');
+  const [currentCity, setCurrentCity] = useState("");
   const [dropdownCities, setDropdownCities] = useState([]);
 
   const rentals = useSelector((state: RootState) => state.rentals);
@@ -20,7 +18,7 @@ const Booking = () => {
     e.preventDefault();
     dispatch(filterProperties(currentCity));
   };
- 
+
   return (
     <form className="flex border-solid border justify-center gap-3 mt-4 w-[60rem] h-20 m-auto items-center">
       <div className="w-32">
@@ -40,7 +38,10 @@ const Booking = () => {
             fetchRentals(e);
           }}
         />
-        <datalist id="cities" className="bg-black">
+        <datalist
+          id="cities"
+          className="bg-black"
+        >
           <option value="San Antonio" />
           <option value="Miami" />
           <option value="Middletown" />
@@ -87,4 +88,3 @@ const Booking = () => {
 };
 
 export default Booking;
-
