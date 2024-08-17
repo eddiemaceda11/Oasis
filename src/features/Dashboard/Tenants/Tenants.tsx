@@ -37,6 +37,7 @@ const TenantsTable = () => {
                 ))}
               </TableBody>
             </Table>
+            <div className="flex h-[2rem] items-center bg-slate-100 border-t"></div>
           </div>
         </div>
       </div>
