@@ -2,7 +2,8 @@ import { useState } from "react";
 import CircularProgress from "@/components/ui/CircularProgress";
 
 const InfoBoxes = () => {
-  // progress for circle
+  // Progress for circle
+  // will be connected to server/db to determine the actual overall properties rented
   const [progress, setProgress] = useState(Math.round((15 / 25) * 100));
 
   return (
