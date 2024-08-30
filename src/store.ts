@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import rentalsReducer from "./features/Home/Rentals/rentalsSlice";
+import dashboardHomeReducer from "./features/Dashboard/Home/homeSlice";
 import tasksReducer from "./features/Dashboard/TaskManager/taskManagerSlice";
 import tenantsReducer from "./features/Dashboard/Tenants/tenantsSlice";
 // import usersReducer from './app/pages/Login/LoginSlice';
@@ -17,6 +18,7 @@ export const store = configureStore({
     rentals: rentalsReducer,
     tasks: tasksReducer,
     tenants: tenantsReducer,
+    home: dashboardHomeReducer,
     // users: usersReducer,
     [apiSlice.reducerPath]: apiSlice.reducer,
   },
