@@ -1,7 +1,10 @@
-// import { type RentalProps } from "@/data/dashboard-rental-properties";
-import { rentalProperties } from "@/data/dashboard-rental-properties";
+import { useSelector, useDispatch } from "react-redux";
+// import { rentalProperties } from "@/data/dashboard-rental-properties";
+import { type RootState } from "@/store";
+import RentCard from "./components/RentCard";
 
 const DashboardHome = () => {
+  const rentalProperties = useSelector((state: RootState) => state.home);
   /* RENT */
   // Get the total amount of possible rent from all properties
   const totalRentalAmount = rentalProperties.reduce((acc, curr) => acc + curr.rentPrice, 0);
@@ -37,52 +40,10 @@ const DashboardHome = () => {
       <div className="pt-3 max-w-[74.3rem] m-auto p-4 ">
         <h1 className="text-[2rem] font-medium mb-4">Home</h1>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="border shadow rounded-lg h-72 p-2 bg-white">
-            <select className="mb-4">
-              <option>Monthly</option>
-              <option>Yearly</option>
-            </select>
-            <br />
-            <span className="border-l ml-3 pl-1">Rent</span>
-            <div className="relative flex items-center justify-center m-auto h-28 w-28">
-              <div
-                className="absolute w-full h-full flex items-center justify-center"
-                style={{
-                  background: `conic-gradient(#3bd1f6 ${percentage}%, #e5e7eb ${percentage}% 100%)`,
-                  borderRadius: "50%",
-                  // clipPath: 'circle(50% at 50% 50%)',
-                }}
-              >
-                <div className="absolute flex items-center justify-center h-24 w-24 bg-white rounded-[50%]">${totalRentalIncome}</div>
-              </div>
-            </div>
-            <div className="mt-4 flex gap-2 ml-3 border">
-              <div className="w-44 border">
-                <div className="text-xs">
-                  <p>
-                    Last month: <span className={totalRentalIncome > 16109 ? "text-green-500" : "text-red-500"}>$16,109</span>
-                  </p>
-                </div>
-                <div className="text-xs">
-                  <p>
-                    Last Year: <span className={totalRentalIncome > 32156 ? "text-green-500" : "text-red-500"}>$32,156</span>
-                  </p>
-                </div>
-              </div>
-              <div className="w-44 border">
-                <div className="text-xs">
-                  <p>
-                    Last month: <span className={totalRentalIncome > 16109 ? "text-green-500" : "text-red-500"}>$16,109</span>
-                  </p>
-                </div>
-                <div className="text-xs">
-                  <p>
-                    Last Year: <span className={totalRentalIncome > 32156 ? "text-green-500" : "text-red-500"}>$32,156</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <RentCard
+            percentage={percentage}
+            totalRentalIncome={totalRentalIncome}
+          />
           <div className="border shadow bg-white rounded-lg h-72 md:col-span-2 p-2">
             <select className="mb-4">
               <option>Monthly</option>
@@ -116,6 +77,7 @@ const DashboardHome = () => {
                 <p className="text-xs ml-2 pb-[1.5px]">Maintenance</p>
               </div>
             </div>
+            R
           </div>
           <div className="border shadow rounded-lg bg-white h-32 p-2">Card</div>
           <div className="border shadow rounded-lg bg-white h-32 p-2 md:col-span-2">Card</div>
