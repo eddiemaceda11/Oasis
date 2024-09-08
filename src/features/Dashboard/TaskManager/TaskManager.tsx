@@ -12,23 +12,22 @@ const Tasks = () => {
 
   return (
     // **** 7=27=24 TEMP ADJUST HEIGHT, NEED TO SET BACK TO H-FULL
-    <div className="h-[820px] w-[100%] bg-[#f3f3f3] overflow-hidden">
-      <div className="pt-3 w-[74.3rem] m-auto p-4 ">
-        <h1 className="text-[2rem] font-medium mb-4">Tasks</h1>
-        <section className="relative flex items-start gap-4 ">
-          <div>
-            <QuickActions
-              postQuickActionUpdate={postQuickActionUpdate}
-              setPostQuickActionUpdate={setPostQuickActionUpdate}
-            />
-            <TaskDetails />
-            <TaskDescription />
-          </div>
-          <ActivityFeed />
-        </section>
-        <div className="py-4">
-          <Assignees />
+
+    <div className="pt-3 w-[74.3rem] m-auto p-4 ">
+      <h1 className="text-[2rem] font-medium mb-4">Tasks</h1>
+      <section className="relative flex items-start gap-4 ">
+        <div>
+          <QuickActions
+            postQuickActionUpdate={postQuickActionUpdate}
+            setPostQuickActionUpdate={setPostQuickActionUpdate}
+          />
+          <TaskDetails />
+          <TaskDescription />
         </div>
+        <ActivityFeed />
+      </section>
+      <div className="py-4">
+        <Assignees />
       </div>
     </div>
   );
