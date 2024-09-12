@@ -26,9 +26,9 @@ const sidebarData = [
         path: "tenants",
       },
       {
-        selection: "Documents",
+        selection: "Orders",
         image: "fa-solid fa-bag-shopping",
-        path: "documents",
+        path: "orders",
       },
     ],
   },

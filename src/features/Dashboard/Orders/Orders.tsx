@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-const Documents = () => {
+const Orders = () => {
   const [currentTab, setCurrentTab] = useState<string | null>("All Orders");
 
   return (
     <div className="pt-3 w-[74.3rem] m-auto p-4 ">
-      <h1 className="text-[2rem] font-medium mb-4">Documents</h1>
+      <h1 className="text-[2rem] font-medium mb-4">Orders</h1>
       <p className="text-xs text-gray-500 w-[75%] leading-[1.6] ">
         In the order details section, you can review and manage all orders with their details. You can view and edit information such as ID's of all orders, product date, order status, price, and location. Access to this view is limited. Only Administrators and team leaders have access. The changes
         you make will be approved after they are reviewed.
@@ -46,4 +46,4 @@ const Documents = () => {
   );
 };
 
-export default Documents;
+export default Orders;
