@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Tabs from "./components/Tabs";
+import CsvButton from "@/components/shared/CsvButton";
 
 const Orders = () => {
   const [currentTab, setCurrentTab] = useState<string | null>("All Orders");
@@ -30,9 +31,7 @@ const Orders = () => {
           <button className="border border-gray-300 h-10 px-4 text-gray-500 text-sm bg-white rounded">
             <i className="fa-solid fa-paperclip pr-2"></i>Attachments
           </button>
-          <button className="border border-gray-300 h-10 px-4 text-gray-500 text-sm bg-white rounded">
-            <i className="fa-solid fa-file-arrow-down pr-2"></i>Exports
-          </button>
+          <CsvButton />
         </div>
       </div>
     </div>
