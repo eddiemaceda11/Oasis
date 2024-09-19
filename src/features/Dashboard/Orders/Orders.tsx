@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Tabs from "./components/Tabs";
-import CsvButton from "@/components/shared/CsvButton";
+import Controls from "./components/Controls";
 
 const Orders = () => {
   const [currentTab, setCurrentTab] = useState<string | null>("All Orders");
@@ -16,23 +16,95 @@ const Orders = () => {
         currentTab={currentTab}
         setCurrentTab={setCurrentTab}
       />
-      <div className="mt-8 h-16 flex items-center">
-        <div className="relative">
-          <i className="fa-solid fa-magnifying-glass absolute top-[7px] left-4 text-gray-400 text-lg"></i>
-          <input
-            className="border border-gray-300 h-10 w-[45rem] rounded pl-11 placeholder:text-gray-400 text-sm"
-            placeholder="Search for an order ID, customer, or product"
-          ></input>
-        </div>
-        <div className="flex ml-auto gap-2">
-          <button className="border border-gray-300 h-10 px-4 text-gray-500 text-sm bg-white rounded">
-            <i className="fa-solid fa-filter pr-2"></i>Filters
-          </button>
-          <button className="border border-gray-300 h-10 px-4 text-gray-500 text-sm bg-white rounded">
-            <i className="fa-solid fa-paperclip pr-2"></i>Attachments
-          </button>
-          <CsvButton />
-        </div>
+      <Controls />
+      <div className="mt-6 h-[28rem]">
+        <table className="w-full">
+          <thead className="border-b border-gray-300 h-12">
+            <tr className="">
+              <th className="pl-5 w-40 text-left text-sm font-medium">Order ID</th>
+              <th className="pl-5 w-40 text-left text-sm font-medium">Customer</th>
+              <th className="pl-5 w-40 text-left text-sm font-medium">Order</th>
+              <th className="w-40 text-sm font-medium">Delivery Date</th>
+              <th className="w-40 text-sm font-medium">Price</th>
+              <th className="w-40 text-sm font-medium">Delivery Status</th>
+              <th className="w-40 text-sm font-medium">Payment</th>
+            </tr>
+          </thead>
+          <tbody className="w-full">
+            <tr className="h-12 hover:bg-blue-100 w-full">
+              <td className="pl-5 w-40 text-sm font-light">1234</td>
+              <td className="pl-5 w-40 text-sm font-light">Eddie</td>
+              <td className="pl-5 w-40 text-sm font-light">Sink Drain</td>
+              <td className="w-40 text-center text-sm font-light">3/28/24</td>
+              <td className="w-40 text-center text-sm font-light">$22.99</td>
+              <td className="w-40 text-center text-sm font-light">Shipped</td>
+              <td className="w-40 text-center text-sm font-light">Credit Card</td>
+            </tr>
+            <tr className="h-12 hover:bg-blue-100 w-full">
+              <td className="pl-5 w-40 text-sm font-light">1234</td>
+              <td className="pl-5 w-40 text-sm font-light">Eddie</td>
+              <td className="pl-5 w-40 text-sm font-light">Sink Drain</td>
+              <td className="w-40 text-center text-sm font-light">3/28/24</td>
+              <td className="w-40 text-center text-sm font-light">$22.99</td>
+              <td className="w-40 text-center text-sm font-light">Shipped</td>
+              <td className="w-40 text-center text-sm font-light">Credit Card</td>
+            </tr>
+            <tr className="h-12 hover:bg-blue-100 w-full">
+              <td className="pl-5 w-40 text-sm font-light">1234</td>
+              <td className="pl-5 w-40 text-sm font-light">Eddie</td>
+              <td className="pl-5 w-40 text-sm font-light">Sink Drain</td>
+              <td className="w-40 text-center text-sm font-light">3/28/24</td>
+              <td className="w-40 text-center text-sm font-light">$22.99</td>
+              <td className="w-40 text-center text-sm font-light">Shipped</td>
+              <td className="w-40 text-center text-sm font-light">Credit Card</td>
+            </tr>
+            <tr className="h-12 hover:bg-blue-100 w-full">
+              <td className="pl-5 w-40 text-sm font-light">1234</td>
+              <td className="pl-5 w-40 text-sm font-light">Eddie</td>
+              <td className="pl-5 w-40 text-sm font-light">Sink Drain</td>
+              <td className="w-40 text-center text-sm font-light">3/28/24</td>
+              <td className="w-40 text-center text-sm font-light">$22.99</td>
+              <td className="w-40 text-center text-sm font-light">Shipped</td>
+              <td className="w-40 text-center text-sm font-light">Credit Card</td>
+            </tr>
+            <tr className="h-12 hover:bg-blue-100 w-full">
+              <td className="pl-5 w-40 text-sm font-light">1234</td>
+              <td className="pl-5 w-40 text-sm font-light">Eddie</td>
+              <td className="pl-5 w-40 text-sm font-light">Sink Drain</td>
+              <td className="w-40 text-center text-sm font-light">3/28/24</td>
+              <td className="w-40 text-center text-sm font-light">$22.99</td>
+              <td className="w-40 text-center text-sm font-light">Shipped</td>
+              <td className="w-40 text-center text-sm font-light">Credit Card</td>
+            </tr>
+            <tr className="h-12 hover:bg-blue-100 w-full">
+              <td className="pl-5 w-40 text-sm font-light">1234</td>
+              <td className="pl-5 w-40 text-sm font-light">Eddie</td>
+              <td className="pl-5 w-40 text-sm font-light">Sink Drain</td>
+              <td className="w-40 text-center text-sm font-light">3/28/24</td>
+              <td className="w-40 text-center text-sm font-light">$22.99</td>
+              <td className="w-40 text-center text-sm font-light">Shipped</td>
+              <td className="w-40 text-center text-sm font-light">Credit Card</td>
+            </tr>
+            <tr className="h-12 hover:bg-blue-100 w-full">
+              <td className="pl-5 w-40 text-sm font-light">1234</td>
+              <td className="pl-5 w-40 text-sm font-light">Eddie</td>
+              <td className="pl-5 w-40 text-sm font-light">Sink Drain</td>
+              <td className="w-40 text-center text-sm font-light">3/28/24</td>
+              <td className="w-40 text-center text-sm font-light">$22.99</td>
+              <td className="w-40 text-center text-sm font-light">Shipped</td>
+              <td className="w-40 text-center text-sm font-light">Credit Card</td>
+            </tr>
+            <tr className="h-12 hover:bg-blue-100 w-full">
+              <td className="pl-5 w-40 text-sm font-light">1234</td>
+              <td className="pl-5 w-40 text-sm font-light">Eddie</td>
+              <td className="pl-5 w-40 text-sm font-light">Sink Drain</td>
+              <td className="w-40 text-center text-sm font-light">3/28/24</td>
+              <td className="w-40 text-center text-sm font-light">$22.99</td>
+              <td className="w-40 text-center text-sm font-light">Shipped</td>
+              <td className="w-40 text-center text-sm font-light">Credit Card</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );
