@@ -1,4 +1,4 @@
-const orders = [
+export const orders = [
   { orderId: "Item-ORD-01", customer: "Alice", deliveryDate: "2024-09-01", price: 29.99, deliveryStatus: "Delivered", payment: "Credit Card" },
   { orderId: "Item-ORD-02", customer: "Bob", deliveryDate: "2024-09-02", price: 49.99, deliveryStatus: "Shipped", payment: "Bank Transfer" },
   { orderId: "Item-ORD-03", customer: "Charlie", deliveryDate: "2024-09-03", price: 15.0, deliveryStatus: "Order Placed", payment: "Paypal" },
