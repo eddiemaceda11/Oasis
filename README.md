@@ -1,3 +1,3 @@
 # Oasis Property Management
 
-[View Live](https://oasispropertymanagement.netlify.app/)
+[View Live](https://oasispropertymanagement.netlify.app/dashboard)
